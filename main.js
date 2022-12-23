@@ -1,4 +1,4 @@
-import { APP_ID as DEFAULT_APP_ID, APP_SECRET as DEFAULT_APP_SECRET } from './src/data/constants';
+import { APP_ID as DEFAULT_APP_ID, APP_SECRET as DEFAULT_APP_SECRET } from './src/data/constants.js';
 import { mixins } from './src/mixins';
 import errors from './src/data/errors';
 
