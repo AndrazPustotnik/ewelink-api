@@ -1,7 +1,7 @@
-const nock = require('nock');
-const { writeFile } = require('fs');
+import nock from 'nock';
+import { writeFile } from 'fs';
 
-exports.startNockRecording = () => {
+export const startNockRecording = () => {
   nock.recorder.rec({
     dont_print: true,
     enable_reqheaders_recording: false,
@@ -9,12 +9,12 @@ exports.startNockRecording = () => {
   });
 };
 
-exports.storeNockRecordings = pathToTape => {
+export const storeNockRecordings = pathToTape => {
   const nockCallObjects = nock.recorder.play();
   writeFile(pathToTape, JSON.stringify(nockCallObjects, null, 2), () => {});
 };
 
-exports.playbackNockTapes = pathToTape => {
+export const playbackNockTapes = pathToTape => {
   const nocks = nock.load(pathToTape);
 
   nocks.forEach(function(n) {

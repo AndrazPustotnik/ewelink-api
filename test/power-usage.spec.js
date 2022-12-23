@@ -1,15 +1,6 @@
-const ewelink = require('../main');
-
-const {
-  email,
-  password,
-  deviceIdWithPower,
-} = require('./_setup/config/credentials.js');
-
-const {
-  rawPowerUsageExpectations,
-  currentMonthPowerUsageExpectations,
-} = require('./_setup/expectations');
+import ewelink from '../main';
+import { email, password, deviceIdWithPower } from './_setup/config/credentials.js';
+import { rawPowerUsageExpectations, currentMonthPowerUsageExpectations } from './_setup/expectations';
 
 describe('power usage: node script', () => {
   let conn;

@@ -1,14 +1,7 @@
-const ewelink = require('../main');
-const errors = require('../src/data/errors');
-
-const {
-  email,
-  password,
-  deviceIdWithoutPower,
-  fourChannelsDevice,
-} = require('./_setup/config/credentials.js');
-
-const { credentialsExpectations } = require('./_setup/expectations');
+import ewelink from '../main';
+import errors from '../src/data/errors';
+import { email, password, deviceIdWithoutPower, fourChannelsDevice } from './_setup/config/credentials.js';
+import { credentialsExpectations } from './_setup/expectations';
 
 describe('valid credentials, invalid device', () => {
   test('get power state on invalid device should fail', async () => {

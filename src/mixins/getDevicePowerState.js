@@ -1,9 +1,8 @@
-const { _get } = require('../helpers/utilities');
-const errors = require('../data/errors');
+import { _get } from '../helpers/utilities';
+import errors from '../data/errors';
+import deviceStatusPayload from '../payloads/deviceStatus';
 
-const deviceStatusPayload = require('../payloads/deviceStatus');
-
-module.exports = {
+export default {
   /**
    * Get current power state for a specific device
    *

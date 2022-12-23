@@ -1,5 +1,5 @@
-const { _get } = require('../helpers/utilities');
-const errors = require('../data/errors');
+import { _get } from '../helpers/utilities';
+import errors from '../data/errors';
 
 const parseFirmwareUpdates = devicesList =>
   devicesList.map(device => {
@@ -13,4 +13,4 @@ const parseFirmwareUpdates = devicesList =>
     return { model, version: fwVersion, deviceid: device.deviceid };
   });
 
-module.exports = parseFirmwareUpdates;
+export default parseFirmwareUpdates;

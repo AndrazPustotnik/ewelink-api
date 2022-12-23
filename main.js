@@ -1,10 +1,6 @@
-const {
-  APP_ID: DEFAULT_APP_ID,
-  APP_SECRET: DEFAULT_APP_SECRET,
-} = require('./src/data/constants');
-
-const { mixins } = require('./src/mixins');
-const errors = require('./src/data/errors');
+import { APP_ID as DEFAULT_APP_ID, APP_SECRET as DEFAULT_APP_SECRET } from './src/data/constants';
+import { mixins } from './src/mixins';
+import errors from './src/data/errors';
 
 class eWeLink {
   constructor(parameters = {}) {
@@ -108,4 +104,4 @@ class eWeLink {
 
 Object.assign(eWeLink.prototype, mixins);
 
-module.exports = eWeLink;
+export default eWeLink;

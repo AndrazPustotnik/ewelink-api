@@ -1,5 +1,5 @@
-const { APP_SECRET } = require('../src/data/constants');
-const ewelinkHelpers = require('../src/helpers/ewelink');
+import { APP_SECRET } from '../src/data/constants';
+import ewelinkHelpers from '../src/helpers/ewelink';
 
 describe('check eWeLink helpers', () => {
   test('make authorization sign should return right string', async () => {

@@ -1,22 +1,22 @@
-const { checkDevicesUpdates } = require('./checkDevicesUpdates');
-const { checkDeviceUpdate } = require('./checkDeviceUpdate');
-const deviceControl = require('./deviceControl');
-const { getCredentials } = require('./getCredentials');
-const { getDevice } = require('./getDevice');
-const { getDeviceChannelCount } = require('./getDeviceChannelCount');
-const getDeviceCurrentTH = require('./getDeviceCurrentTH');
-const { getDeviceIP } = require('./getDeviceIP');
-const { getDevicePowerState } = require('./getDevicePowerState');
-const { getDevicePowerUsage } = require('./getDevicePowerUsage');
-const { getDevicePowerUsageRaw } = require('./getDevicePowerUsageRaw');
-const { getDevices } = require('./getDevices');
-const { getFirmwareVersion } = require('./getFirmwareVersion');
-const { getRegion } = require('./getRegion');
-const { makeRequest } = require('./makeRequest');
-const { openWebSocket } = require('./openWebSocket');
-const { saveDevicesCache } = require('./saveDevicesCache');
-const { setDevicePowerState } = require('./setDevicePowerState');
-const { toggleDevice } = require('./toggleDevice');
+import { checkDevicesUpdates } from './checkDevicesUpdates';
+import { checkDeviceUpdate } from './checkDeviceUpdate';
+import deviceControl from './deviceControl';
+import { getCredentials } from './getCredentials';
+import { getDevice } from './getDevice';
+import { getDeviceChannelCount } from './getDeviceChannelCount';
+import getDeviceCurrentTH from './getDeviceCurrentTH';
+import { getDeviceIP } from './getDeviceIP';
+import { getDevicePowerState } from './getDevicePowerState';
+import { getDevicePowerUsage } from './getDevicePowerUsage';
+import { getDevicePowerUsageRaw } from './getDevicePowerUsageRaw';
+import { getDevices } from './getDevices';
+import { getFirmwareVersion } from './getFirmwareVersion';
+import { getRegion } from './getRegion';
+import { makeRequest } from './makeRequest';
+import { openWebSocket } from './openWebSocket';
+import { saveDevicesCache } from './saveDevicesCache';
+import { setDevicePowerState } from './setDevicePowerState';
+import { toggleDevice } from './toggleDevice';
 
 export const mixins = {
   checkDevicesUpdates,

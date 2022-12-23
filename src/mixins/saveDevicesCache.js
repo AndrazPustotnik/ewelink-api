@@ -1,8 +1,7 @@
-const fs = require('fs');
+import fs from 'fs';
+import { _get } from '../helpers/utilities';
 
-const { _get } = require('../helpers/utilities');
-
-module.exports = {
+export default {
   /**
    * Save devices cache file (useful for using zeroconf)
    * @returns {Promise<string|{msg: string, error: number}|*|Device[]|{msg: string, error: number}>}

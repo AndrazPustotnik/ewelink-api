@@ -1,10 +1,8 @@
-const { _get, timestamp, nonce } = require('../helpers/utilities');
-const errors = require('../data/errors');
+import { _get, timestamp, nonce } from '../helpers/utilities';
+import errors from '../data/errors';
+import ChangeStateZeroconf from '../classes/ChangeStateZeroconf';
 
-
-const ChangeStateZeroconf = require('../classes/ChangeStateZeroconf');
-
-module.exports = {
+export default {
   /**
    * Change power state for a specific device
    *

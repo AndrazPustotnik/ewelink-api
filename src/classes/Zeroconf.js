@@ -1,5 +1,6 @@
-const fs = require('fs');
-const arpping = require('arpping')({});
+import fs from 'fs';
+import arppingFactory from 'arpping';
+const arpping = arppingFactory({});
 
 class Zeroconf {
   /**
@@ -88,4 +89,4 @@ class Zeroconf {
   }
 }
 
-module.exports = Zeroconf;
+export default Zeroconf;

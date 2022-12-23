@@ -46,7 +46,7 @@ const getSpecificChannelState = (params, channel) => {
   return switches[channel - 1].switch;
 };
 
-module.exports = {
+export default {
   STATE_ON,
   STATE_OFF,
   STATE_TOGGLE,

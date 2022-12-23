@@ -20,4 +20,4 @@ const customErrors = {
   invalidPowerState: 'Invalid power state. Expecting: "on", "off" or "toggle"',
 };
 
-module.exports = Object.assign(errors, customErrors);
+export default Object.assign(errors, customErrors);

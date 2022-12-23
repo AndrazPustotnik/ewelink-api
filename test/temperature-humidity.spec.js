@@ -1,12 +1,12 @@
-const ewelink = require('../main');
-const errors = require('../src/data/errors');
+import ewelink from '../main';
+import errors from '../src/data/errors';
 
-const {
+import {
   email,
   password,
   deviceIdWithoutTempAndHum,
-  deviceIdWithTempAndHum: thDevice,
-} = require('./_setup/config/credentials.js');
+  deviceIdWithTempAndHum as thDevice,
+} from './_setup/config/credentials.js';
 
 describe('current temperature and humidity: node script', () => {
   let conn;

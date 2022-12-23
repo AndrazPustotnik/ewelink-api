@@ -1,11 +1,6 @@
-const path = require('path');
-const delay = require('delay');
-
-const {
-  startNockRecording,
-  storeNockRecordings,
-  playbackNockTapes,
-} = require('./nock-helpers');
+import path from 'path';
+import delay from 'delay';
+import { startNockRecording, storeNockRecordings, playbackNockTapes } from './nock-helpers';
 
 // Change to 'record' or 'play' to use nock on tests
 // Set to false to run live against eWeLink servers

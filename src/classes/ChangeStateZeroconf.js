@@ -1,8 +1,7 @@
-const fetch = require('node-fetch');
-
-const WebSocket = require('./WebSocket');
-const zeroConfUpdatePayload = require('../payloads/zeroConfUpdatePayload');
-const { _get } = require('../helpers/utilities');
+import fetch from 'node-fetch';
+import WebSocket from './WebSocket';
+import zeroConfUpdatePayload from '../payloads/zeroConfUpdatePayload';
+import { _get } from '../helpers/utilities';
 
 class ChangeStateZeroconf extends WebSocket {
   static async set({ url, device, params, switches, state }) {
@@ -31,4 +30,4 @@ class ChangeStateZeroconf extends WebSocket {
   }
 }
 
-module.exports = ChangeStateZeroconf;
+export default ChangeStateZeroconf;

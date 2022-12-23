@@ -1,8 +1,8 @@
-const WebSocket = require('./WebSocket');
-const wssLoginPayload = require('../payloads/wssLoginPayload');
-const wssUpdatePayload = require('../payloads/wssUpdatePayload');
-const { _get } = require('../helpers/utilities');
-const errors = require('../data/errors');
+import WebSocket from './WebSocket';
+import wssLoginPayload from '../payloads/wssLoginPayload';
+import wssUpdatePayload from '../payloads/wssUpdatePayload';
+import { _get } from '../helpers/utilities';
+import errors from '../data/errors';
 
 class DevicePowerUsageRaw extends WebSocket {
   /**
@@ -55,4 +55,4 @@ class DevicePowerUsageRaw extends WebSocket {
   }
 }
 
-module.exports = DevicePowerUsageRaw;
+export default DevicePowerUsageRaw;

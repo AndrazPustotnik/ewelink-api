@@ -1,9 +1,7 @@
-const ewelink = require('../main');
-const errors = require('../src/data/errors');
-
-const { email, password, region } = require('./_setup/config/credentials.js');
-
-const { regionExpectations } = require('./_setup/expectations');
+import ewelink from '../main';
+import errors from '../src/data/errors';
+import { email, password, region } from './_setup/config/credentials.js';
+import { regionExpectations } from './_setup/expectations';
 
 describe('check user information', () => {
   test('region should be returned', async () => {

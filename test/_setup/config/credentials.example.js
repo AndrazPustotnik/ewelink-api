@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // eWeLink credentials
   email: '<your ewelink email>',
   password: '<your ewelink password>',

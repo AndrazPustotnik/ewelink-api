@@ -1,15 +1,15 @@
-const ewelink = require('../main');
-const errors = require('../src/data/errors');
+import ewelink from '../main';
+import errors from '../src/data/errors';
 
-const {
+import {
   email,
   password,
   singleChannelDeviceId,
   outdatedFirmwareDevice,
   updatedFirmwareDevice,
-} = require('./_setup/config/credentials.js');
+} from './_setup/config/credentials.js';
 
-const { firmwareExpectations } = require('./_setup/expectations');
+import { firmwareExpectations } from './_setup/expectations';
 
 describe('firmware: get version methods', () => {
   let connection;

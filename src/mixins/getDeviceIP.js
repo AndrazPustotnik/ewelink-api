@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /**
    * Get local IP address from a given MAC
    *

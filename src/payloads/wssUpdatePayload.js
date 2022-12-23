@@ -1,4 +1,4 @@
-const { timestamp } = require('../helpers/utilities');
+import { timestamp } from '../helpers/utilities';
 
 const wssUpdatePayload = ({ apiKey, deviceId, params }) => {
   const payload = {
@@ -14,4 +14,4 @@ const wssUpdatePayload = ({ apiKey, deviceId, params }) => {
   return JSON.stringify(payload);
 };
 
-module.exports = wssUpdatePayload;
+export default wssUpdatePayload;

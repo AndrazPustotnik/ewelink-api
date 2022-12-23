@@ -1,8 +1,7 @@
-const { _get } = require('../helpers/utilities');
+import { _get } from '../helpers/utilities';
+import DevicePowerUsageRaw from '../classes/DevicePowerUsageRaw';
 
-const DevicePowerUsageRaw = require('../classes/DevicePowerUsageRaw');
-
-module.exports = {
+export default {
   /**
    * Get device raw power usage
    *

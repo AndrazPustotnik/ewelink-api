@@ -1,7 +1,7 @@
-const { _get } = require('../helpers/utilities');
-const parseFirmwareUpdates = require('../parsers/parseFirmwareUpdates');
+import { _get } from '../helpers/utilities';
+import parseFirmwareUpdates from '../parsers/parseFirmwareUpdates';
 
-module.exports = {
+export default {
   async checkDevicesUpdates() {
     const devices = await this.getDevices();
 

@@ -35,4 +35,4 @@ const parsePowerUsage = ({ hundredDaysKwhData }) => {
   };
 };
 
-module.exports = parsePowerUsage;
+export default parsePowerUsage;
