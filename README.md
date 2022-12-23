@@ -1,5 +1,5 @@
 # ewelink-api
-> eWeLink API for JavaScript
+> eWeLink API (4npy version) for JavaScript
 
 
 ## Key features
@@ -8,11 +8,15 @@
 * get power consumption on devices like Sonoff POW
 * listen for devices events
 * using zeroconf (LAN mode), no internet connection required
+*
+* 4npy added:
+* ES6 supprot for some functions...
+* setDeviceParams()
 
 
 ## Installation
 ```sh
- npm install ewelink-api
+ npm install AndrazPustotnik/ewelink-api
 ```
 
 
