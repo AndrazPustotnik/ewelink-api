@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
-import WebSocket from './WebSocket';
-import zeroConfUpdatePayload from '../payloads/zeroConfUpdatePayload';
-import { _get } from '../helpers/utilities';
+import WebSocket from './WebSocket.js';
+import zeroConfUpdatePayload from '../payloads/zeroConfUpdatePayload.js';
+import { _get } from '../helpers/utilities.js';
 
 class ChangeStateZeroconf extends WebSocket {
   static async set({ url, device, params, switches, state }) {

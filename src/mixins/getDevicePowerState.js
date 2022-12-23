@@ -1,46 +1,45 @@
-import { _get } from '../helpers/utilities';
-import errors from '../data/errors';
-import deviceStatusPayload from '../payloads/deviceStatus';
+import { _get } from '../helpers/utilities.js';
+import errors from '../data/errors.js';
+import deviceStatusPayload from '../payloads/deviceStatus.js';
 
-export default {
-  /**
-   * Get current power state for a specific device
-   *
-   * @param deviceId
-   * @param channel
-   *
-   * @returns {Promise<{state: *, status: string}|{msg: string, error: *}>}
-   */
-  async getDevicePowerState(deviceId, channel = 1) {
-    const status = await this.makeRequest({
-      uri: '/user/device/status',
-      qs: deviceStatusPayload({
-        appid: this.APP_ID,
-        deviceId,
-        params: 'switch|switches',
-      }),
-    });
 
-    const error = _get(status, 'error', false);
+/**
+ * Get current power state for a specific device
+ *
+ * @param deviceId
+ * @param channel
+ *
+ * @returns {Promise<{state: *, status: string}|{msg: string, error: *}>}
+ */
+export async function getDevicePowerState(deviceId, channel = 1) {
+  const status = await this.makeRequest({
+    uri: '/user/device/status',
+    qs: deviceStatusPayload({
+      appid: this.APP_ID,
+      deviceId,
+      params: 'switch|switches',
+    }),
+  });
 
-    if (error) {
-      const err = error === 400 ? 404 : error;
-      return { error: err, msg: errors[err] };
-    }
+  const error = _get(status, 'error', false);
 
-    let state = _get(status, 'params.switch', false);
-    const switches = _get(status, 'params.switches', false);
+  if (error) {
+    const err = error === 400 ? 404 : error;
+    return { error: err, msg: errors[err] };
+  }
 
-    const switchesAmount = switches ? switches.length : 1;
+  let state = _get(status, 'params.switch', false);
+  const switches = _get(status, 'params.switches', false);
 
-    if (switchesAmount > 0 && switchesAmount < channel) {
-      return { error: 404, msg: errors.ch404 };
-    }
+  const switchesAmount = switches ? switches.length : 1;
 
-    if (switches) {
-      state = switches[channel - 1].switch;
-    }
+  if (switchesAmount > 0 && switchesAmount < channel) {
+    return { error: 404, msg: errors.ch404 };
+  }
 
-    return { status: 'ok', state, channel };
-  },
-};
+  if (switches) {
+    state = switches[channel - 1].switch;
+  }
+
+  return { status: 'ok', state, channel };
+}

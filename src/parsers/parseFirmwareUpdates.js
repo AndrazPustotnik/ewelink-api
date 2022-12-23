@@ -1,5 +1,5 @@
-import { _get } from '../helpers/utilities';
-import errors from '../data/errors';
+import { _get } from '../helpers/utilities.js';
+import errors from '../data/errors.js';
 
 const parseFirmwareUpdates = devicesList =>
   devicesList.map(device => {

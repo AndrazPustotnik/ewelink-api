@@ -1,23 +1,22 @@
-import { _get } from '../helpers/utilities';
-import errors from '../data/errors';
+import { _get } from '../helpers/utilities.js';
+import errors from '../data/errors.js';
 
-export default {
-  async getRegion() {
-    if (!this.email || !this.password) {
-      return { error: 406, msg: errors.invalidAuth };
-    }
 
-    const credentials = await this.getCredentials();
+export async function getRegion() {
+  if (!this.email || !this.password) {
+    return { error: 406, msg: errors.invalidAuth };
+  }
 
-    const error = _get(credentials, 'error', false);
+  const credentials = await this.getCredentials();
 
-    if (error) {
-      return credentials;
-    }
+  const error = _get(credentials, 'error', false);
 
-    return {
-      email: credentials.user.email,
-      region: credentials.region,
-    };
-  },
-};
+  if (error) {
+    return credentials;
+  }
+
+  return {
+    email: credentials.user.email,
+    region: credentials.region,
+  };
+}

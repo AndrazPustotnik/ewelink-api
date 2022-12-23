@@ -1,54 +1,53 @@
-import { _get } from '../helpers/utilities';
-import parseFirmwareUpdates from '../parsers/parseFirmwareUpdates';
+import { _get } from '../helpers/utilities.js';
+import parseFirmwareUpdates from '../parsers/parseFirmwareUpdates.js';
 
-export default {
-  async checkDevicesUpdates() {
-    const devices = await this.getDevices();
 
-    const error = _get(devices, 'error', false);
+export async function checkDevicesUpdates() {
+  const devices = await this.getDevices();
 
-    if (error) {
-      return devices;
-    }
+  const error = _get(devices, 'error', false);
 
-    const deviceInfoList = parseFirmwareUpdates(devices);
+  if (error) {
+    return devices;
+  }
 
-    const deviceInfoListError = _get(deviceInfoList, 'error', false);
+  const deviceInfoList = parseFirmwareUpdates(devices);
 
-    if (deviceInfoListError) {
-      return deviceInfoList;
-    }
+  const deviceInfoListError = _get(deviceInfoList, 'error', false);
 
-    const updates = await this.makeRequest({
-      method: 'post',
-      url: this.getOtaUrl(),
-      uri: '/app',
-      body: { deviceInfoList },
-    });
+  if (deviceInfoListError) {
+    return deviceInfoList;
+  }
 
-    const upgradeInfoList = _get(updates, 'upgradeInfoList', false);
+  const updates = await this.makeRequest({
+    method: 'post',
+    url: this.getOtaUrl(),
+    uri: '/app',
+    body: { deviceInfoList },
+  });
 
-    if (!upgradeInfoList) {
-      return { error: "Can't find firmware update information" };
-    }
+  const upgradeInfoList = _get(updates, 'upgradeInfoList', false);
 
-    return upgradeInfoList.map(device => {
-      const upd = _get(device, 'version', false);
+  if (!upgradeInfoList) {
+    return { error: "Can't find firmware update information" };
+  }
 
-      if (!upd) {
-        return {
-          status: 'ok',
-          deviceId: device.deviceid,
-          msg: 'No update available',
-        };
-      }
+  return upgradeInfoList.map(device => {
+    const upd = _get(device, 'version', false);
 
+    if (!upd) {
       return {
         status: 'ok',
         deviceId: device.deviceid,
-        msg: 'Update available',
-        version: upd,
+        msg: 'No update available',
       };
-    });
-  },
-};
+    }
+
+    return {
+      status: 'ok',
+      deviceId: device.deviceid,
+      msg: 'Update available',
+      version: upd,
+    };
+  });
+}
