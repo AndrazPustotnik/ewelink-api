@@ -1,54 +1,52 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 const { _get, _empty, toQueryString } = require('../helpers/utilities');
 const errors = require('../data/errors');
 
-module.exports = {
-  /**
-   * Helper to make api requests
-   *
-   * @param method
-   * @param url
-   * @param uri
-   * @param body
-   * @param qs
-   * @returns {Promise<{msg: *, error: *}|*>}
-   */
-  async makeRequest({ method = 'get', url, uri, body = {}, qs = {} }) {
-    const { at } = this;
+/**
+ * Helper to make api requests
+ *
+ * @param method
+ * @param url
+ * @param uri
+ * @param body
+ * @param qs
+ * @returns {Promise<{msg: *, error: *}|*>}
+ */
+export async function makeRequest({ method = 'get', url, uri, body = {}, qs = {} }) {
+  const { at } = this;
 
-    if (!at) {
-      await this.getCredentials();
-    }
+  if (!at) {
+    await this.getCredentials();
+  }
 
-    let apiUrl = this.getApiUrl();
+  let apiUrl = this.getApiUrl();
 
-    if (url) {
-      apiUrl = url;
-    }
+  if (url) {
+    apiUrl = url;
+  }
 
-    const payload = {
-      method,
-      headers: {
-        Authorization: `Bearer ${this.at}`,
-        'Content-Type': 'application/json',
-      },
-    };
+  const payload = {
+    method,
+    headers: {
+      Authorization: `Bearer ${this.at}`,
+      'Content-Type': 'application/json',
+    },
+  };
 
-    if (!_empty(body)) {
-      payload.body = JSON.stringify(body);
-    }
+  if (!_empty(body)) {
+    payload.body = JSON.stringify(body);
+  }
 
-    const queryString = !_empty(qs) ? toQueryString(qs) : '';
-    const requestUrl = `${apiUrl}${uri}${queryString}`;
+  const queryString = !_empty(qs) ? toQueryString(qs) : '';
+  const requestUrl = `${apiUrl}${uri}${queryString}`;
 
-    const request = await fetch(requestUrl, payload);
+  const request = await fetch(requestUrl, payload);
 
-    if (!request.ok) {
-      return { error: request.status, msg: errors[request.status] };
-    }
+  if (!request.ok) {
+    return { error: request.status, msg: errors[request.status] };
+  }
 
-    const response = await request.json();
+  const response = await request.json();
 
-    return response
-  },
-};
+  return response
+}
