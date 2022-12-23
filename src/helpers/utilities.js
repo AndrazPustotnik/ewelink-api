@@ -1,10 +1,10 @@
-const nonce = Math.random()
+export const nonce = Math.random()
   .toString(36)
   .slice(5);
 
-const timestamp = Math.floor(new Date() / 1000);
+export const timestamp = Math.floor(new Date() / 1000);
 
-const _get = (obj, path, defaultValue = null) =>
+export const _get = (obj, path, defaultValue = null) =>
   String.prototype.split
     .call(path, /[,[\].]+?/)
     .filter(Boolean)
@@ -13,17 +13,9 @@ const _get = (obj, path, defaultValue = null) =>
       obj
     );
 
-const _empty = obj => Object.entries(obj).length === 0;
+export const _empty = obj => Object.entries(obj).length === 0;
 
-const toQueryString = object =>
+export const toQueryString = object =>
   `?${Object.keys(object)
     .map(key => `${key}=${object[key].toString()}`)
     .join('&')}`;
-
-export default {
-  nonce,
-  timestamp,
-  _get,
-  _empty,
-  toQueryString,
-};

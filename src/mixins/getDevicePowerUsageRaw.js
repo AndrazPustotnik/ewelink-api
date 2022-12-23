@@ -1,29 +1,28 @@
-import { _get } from '../helpers/utilities';
-import DevicePowerUsageRaw from '../classes/DevicePowerUsageRaw';
+import { _get } from '../helpers/utilities.js';
+import DevicePowerUsageRaw from '../classes/DevicePowerUsageRaw.js';
 
-export default {
-  /**
-   * Get device raw power usage
-   *
-   * @param deviceId
-   *
-   * @returns {Promise<{error: string}|{response: {hundredDaysKwhData: *}, status: string}>}
-   */
-  async getDevicePowerUsageRaw(deviceId) {
-    const device = await this.getDevice(deviceId);
-    const deviceApiKey = _get(device, 'apikey', false);
 
-    const actionParams = {
-      apiUrl: this.getApiWebSocket(),
-      at: this.at,
-      apiKey: this.apiKey,
-      deviceId,
-    };
+/**
+ * Get device raw power usage
+ *
+ * @param deviceId
+ *
+ * @returns {Promise<{error: string}|{response: {hundredDaysKwhData: *}, status: string}>}
+ */
+export async function getDevicePowerUsageRaw(deviceId) {
+  const device = await this.getDevice(deviceId);
+  const deviceApiKey = _get(device, 'apikey', false);
 
-    if (this.apiKey !== deviceApiKey) {
-      actionParams.apiKey = deviceApiKey;
-    }
+  const actionParams = {
+    apiUrl: this.getApiWebSocket(),
+    at: this.at,
+    apiKey: this.apiKey,
+    deviceId,
+  };
 
-    return DevicePowerUsageRaw.get(actionParams);
-  },
-};
+  if (this.apiKey !== deviceApiKey) {
+    actionParams.apiKey = deviceApiKey;
+  }
+
+  return DevicePowerUsageRaw.get(actionParams);
+}

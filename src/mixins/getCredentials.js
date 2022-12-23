@@ -1,9 +1,9 @@
 import fetch from 'node-fetch';
 
-import { _get } from '../helpers/utilities';
-import credentialsPayload from '../payloads/credentialsPayload';
-import { makeAuthorizationSign } from '../helpers/ewelink';
-import errors from '../data/errors';
+import { _get } from '../helpers/utilities.js';
+import credentialsPayload from '../payloads/credentialsPayload.js';
+import { makeAuthorizationSign } from '../helpers/ewelink.js';
+import errors from '../data/errors.js';
 
 
 export async function getCredentials() {

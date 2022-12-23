@@ -1,10 +1,10 @@
 import crypto from 'crypto';
 import CryptoJS from 'crypto-js';
 import random from 'random';
-import DEVICE_TYPE_UUID from '../data/devices-type-uuid.json';
-import DEVICE_CHANNEL_LENGTH from '../data/devices-channel-length.json';
+import DEVICE_TYPE_UUID from '../data/devices-type-uuid.json' assert { type: "json" };
+import DEVICE_CHANNEL_LENGTH from '../data/devices-channel-length.json' assert { type: "json" };
 
-const makeAuthorizationSign = (APP_SECRET, body) =>
+export const makeAuthorizationSign = (APP_SECRET, body) =>
   crypto
     .createHmac('sha256', APP_SECRET)
     .update(JSON.stringify(body))
@@ -15,7 +15,7 @@ const getDeviceTypeByUiid = uiid => DEVICE_TYPE_UUID[uiid] || '';
 const getDeviceChannelCountByType = deviceType =>
   DEVICE_CHANNEL_LENGTH[deviceType] || 0;
 
-const getDeviceChannelCount = deviceUUID => {
+export const getDeviceChannelCount = deviceUUID => {
   const deviceType = getDeviceTypeByUiid(deviceUUID);
   return getDeviceChannelCountByType(deviceType);
 };
@@ -34,7 +34,7 @@ const encryptionBase64 = t =>
 const decryptionBase64 = t =>
   CryptoJS.enc.Base64.parse(t).toString(CryptoJS.enc.Utf8);
 
-const encryptationData = (data, key) => {
+export const encryptationData = (data, key) => {
   const encryptedMessage = {};
   const uid = create16Uiid();
   const iv = encryptionBase64(uid);
@@ -49,7 +49,7 @@ const encryptationData = (data, key) => {
   return encryptedMessage;
 };
 
-const decryptionData = (data, key, iv) => {
+export const decryptionData = (data, key, iv) => {
   const iv64 = decryptionBase64(iv);
   const code = CryptoJS.AES.decrypt(data, CryptoJS.MD5(key), {
     iv: CryptoJS.enc.Utf8.parse(iv64),

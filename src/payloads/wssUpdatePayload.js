@@ -1,4 +1,4 @@
-import { timestamp } from '../helpers/utilities';
+import { timestamp } from '../helpers/utilities.js';
 
 const wssUpdatePayload = ({ apiKey, deviceId, params }) => {
   const payload = {

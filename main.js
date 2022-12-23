@@ -1,6 +1,6 @@
 import { APP_ID as DEFAULT_APP_ID, APP_SECRET as DEFAULT_APP_SECRET } from './src/data/constants.js';
-import { mixins } from './src/mixins';
-import errors from './src/data/errors';
+import { mixins } from './src/mixins/index.js';
+import errors from './src/data/errors.js';
 
 class eWeLink {
   constructor(parameters = {}) {

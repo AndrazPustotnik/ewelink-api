@@ -1,5 +1,5 @@
-import { _get, timestamp } from '../helpers/utilities';
-import errors from '../data/errors';
+import { _get, timestamp } from '../helpers/utilities.js';
+import errors from '../data/errors.js';
 
 /**
  * Get all devices information

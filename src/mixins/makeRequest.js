@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-import { _get, _empty, toQueryString } from '../helpers/utilities';
-import errors from '../data/errors';
+import { _get, _empty, toQueryString } from '../helpers/utilities.js';
+import errors from '../data/errors.js';
 
 /**
  * Helper to make api requests

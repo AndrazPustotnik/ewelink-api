@@ -1,22 +1,23 @@
-import { checkDevicesUpdates } from './checkDevicesUpdates';
-import { checkDeviceUpdate } from './checkDeviceUpdate';
-import deviceControl from './deviceControl';
-import { getCredentials } from './getCredentials';
-import { getDevice } from './getDevice';
-import { getDeviceChannelCount } from './getDeviceChannelCount';
-import getDeviceCurrentTH from './getDeviceCurrentTH';
-import { getDeviceIP } from './getDeviceIP';
-import { getDevicePowerState } from './getDevicePowerState';
-import { getDevicePowerUsage } from './getDevicePowerUsage';
-import { getDevicePowerUsageRaw } from './getDevicePowerUsageRaw';
-import { getDevices } from './getDevices';
-import { getFirmwareVersion } from './getFirmwareVersion';
-import { getRegion } from './getRegion';
-import { makeRequest } from './makeRequest';
-import { openWebSocket } from './openWebSocket';
-import { saveDevicesCache } from './saveDevicesCache';
-import { setDevicePowerState } from './setDevicePowerState';
-import { toggleDevice } from './toggleDevice';
+import { checkDevicesUpdates } from './checkDevicesUpdates.js';
+import { checkDeviceUpdate } from './checkDeviceUpdate.js';
+import deviceControl from './deviceControl.js';
+import { getCredentials } from './getCredentials.js';
+import { getDevice } from './getDevice.js';
+import { getDeviceChannelCount } from './getDeviceChannelCount.js';
+import getDeviceCurrentTH from './getDeviceCurrentTH.js';
+import { getDeviceIP } from './getDeviceIP.js';
+import { getDevicePowerState } from './getDevicePowerState.js';
+import { getDevicePowerUsage } from './getDevicePowerUsage.js';
+import { getDevicePowerUsageRaw } from './getDevicePowerUsageRaw.js';
+import { getDevices } from './getDevices.js';
+import { getFirmwareVersion } from './getFirmwareVersion.js';
+import { getRegion } from './getRegion.js';
+import { makeRequest } from './makeRequest.js';
+import { openWebSocket } from './openWebSocket.js';
+import { saveDevicesCache } from './saveDevicesCache.js';
+import { setDevicePowerState } from './setDevicePowerState.js';
+import { toggleDevice } from './toggleDevice.js';
+import { setDeviceParams } from './setDeviceParams.js';
 
 export const mixins = {
   checkDevicesUpdates,
@@ -38,5 +39,6 @@ export const mixins = {
   saveDevicesCache,
   setDevicePowerState,
   toggleDevice,
+  setDeviceParams,
 };
 

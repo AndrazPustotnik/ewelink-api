@@ -1,7 +1,8 @@
-import { w3cwebsocket as W3CWebSocket } from 'websocket';
+import pkg from 'websocket';
+const { w3cwebsocket: W3CWebSocket } = pkg;
 import WebSocketAsPromised from 'websocket-as-promised';
 import delay from 'delay';
-import errors from '../data/errors';
+import errors from '../data/errors.js';
 
 class WebSocket {
   /**
