@@ -1,7 +1,3 @@
-const APP_ID = 'YzfeftUVcZ6twZw1OoVKPRFYTrGEg01Q';
-const APP_SECRET = '4G91qSoboqYO4Y0XJ0LPPKIsq8reHdfa';
+export const APP_ID = 'YzfeftUVcZ6twZw1OoVKPRFYTrGEg01Q';
+export const APP_SECRET = '4G91qSoboqYO4Y0XJ0LPPKIsq8reHdfa';
 
-export default {
-  APP_ID,
-  APP_SECRET,
-};

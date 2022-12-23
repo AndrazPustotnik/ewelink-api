@@ -1,43 +1,43 @@
-import { w3cwebsocket as W3CWebSocket } from 'websocket';
+import pkg from 'websocket';
+const { w3cwebsocket: W3CWebSocket } = pkg;
 import WebSocketAsPromised from 'websocket-as-promised';
-import wssLoginPayload from '../payloads/wssLoginPayload';
+import wssLoginPayload from '../payloads/wssLoginPayload.js';
 
-export default {
-  /**
-   * Open a socket connection to eWeLink
-   * and execute callback function with server message as argument
-   *
-   * @param callback
-   * @param heartbeat
-   * @returns {Promise<WebSocketAsPromised>}
-   */
-  async openWebSocket(callback, ...{ heartbeat = 120000 }) {
-    const payloadLogin = wssLoginPayload({
-      at: this.at,
-      apiKey: this.apiKey,
-      appid: this.APP_ID,
-    });
 
-    const wsp = new WebSocketAsPromised(this.getApiWebSocket(), {
-      createWebSocket: wss => new W3CWebSocket(wss),
-    });
+/**
+ * Open a socket connection to eWeLink
+ * and execute callback function with server message as argument
+ *
+ * @param callback
+ * @param heartbeat
+ * @returns {Promise<WebSocketAsPromised>}
+ */
+export async function openWebSocket(callback, ...{ heartbeat = 120000 }) {
+  const payloadLogin = wssLoginPayload({
+    at: this.at,
+    apiKey: this.apiKey,
+    appid: this.APP_ID,
+  });
 
-    wsp.onMessage.addListener(message => {
-      try {
-        const data = JSON.parse(message);
-        callback(data);
-      } catch (error) {
-        callback(message);
-      }
-    });
+  const wsp = new WebSocketAsPromised(this.getApiWebSocket(), {
+    createWebSocket: wss => new W3CWebSocket(wss),
+  });
 
-    await wsp.open();
-    await wsp.send(payloadLogin);
+  wsp.onMessage.addListener(message => {
+    try {
+      const data = JSON.parse(message);
+      callback(data);
+    } catch (error) {
+      callback(message);
+    }
+  });
 
-    setInterval(async () => {
-      await wsp.send('ping');
-    }, heartbeat);
+  await wsp.open();
+  await wsp.send(payloadLogin);
 
-    return wsp;
-  },
-};
+  setInterval(async () => {
+    await wsp.send('ping');
+  }, heartbeat);
+
+  return wsp;
+}

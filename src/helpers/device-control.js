@@ -1,13 +1,13 @@
-const STATE_ON = 'on';
-const STATE_OFF = 'off';
-const STATE_TOGGLE = 'toggle';
+export const STATE_ON = 'on';
+export const STATE_OFF = 'off';
+export const STATE_TOGGLE = 'toggle';
 
-const VALID_POWER_STATES = [STATE_ON, STATE_OFF, STATE_TOGGLE];
+export const VALID_POWER_STATES = [STATE_ON, STATE_OFF, STATE_TOGGLE];
 
 /**
  * Return new device state based on current conditions
  */
-const getNewPowerState = (currentState, newState) => {
+export const getNewPowerState = (currentState, newState) => {
   if (newState !== STATE_TOGGLE) {
     return newState;
   }
@@ -17,7 +17,7 @@ const getNewPowerState = (currentState, newState) => {
 /**
  * Get current device parameters and
  */
-const getPowerStateParams = (params, newState, channel) => {
+export const getPowerStateParams = (params, newState, channel) => {
   if (params.switches) {
     const switches = [...params.switches];
     const channelToSwitch = channel - 1;
@@ -30,7 +30,7 @@ const getPowerStateParams = (params, newState, channel) => {
 /**
  * Return status of all channels on a multi-channel device
  */
-const getAllChannelsState = params => {
+export const getAllChannelsState = params => {
   const { switches } = params;
   return switches.map(ch => ({
     channel: ch.outlet + 1,
@@ -41,18 +41,7 @@ const getAllChannelsState = params => {
 /**
  * Return status of specific channel on multi-channel device
  */
-const getSpecificChannelState = (params, channel) => {
+export const getSpecificChannelState = (params, channel) => {
   const { switches } = params;
   return switches[channel - 1].switch;
-};
-
-export default {
-  STATE_ON,
-  STATE_OFF,
-  STATE_TOGGLE,
-  VALID_POWER_STATES,
-  getNewPowerState,
-  getPowerStateParams,
-  getAllChannelsState,
-  getSpecificChannelState,
 };

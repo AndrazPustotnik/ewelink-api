@@ -1,58 +1,57 @@
-import { _get, timestamp, nonce } from '../helpers/utilities';
-import errors from '../data/errors';
-import ChangeStateZeroconf from '../classes/ChangeStateZeroconf';
-
-export default {
-  /**
-   * Change power state for a specific device
-   *
-   * @param deviceId
-   * @param params
-   * @param channel
-   *
-   * @returns {Promise<{params: *, status: string}|{msg: string, error: *}>}
-   */
-  async setDeviceParams(deviceId, params) {
-    const device = await this.getDevice(deviceId);
-    const error = _get(device, 'error', false);
-
-    let status = _get(device, 'params.switch', false);
+import { _get, timestamp, nonce } from '../helpers/utilities.js';
+import errors from '../data/errors.js';
+import ChangeStateZeroconf from '../classes/ChangeStateZeroconf.js';
 
 
-    if (error || (!status)) {
-      return { error, msg: errors[error] };
-    }
+/**
+ * Change power state for a specific device
+ *
+ * @param deviceId
+ * @param params
+ * @param channel
+ *
+ * @returns {Promise<{params: *, status: string}|{msg: string, error: *}>}
+ */
+export async function setDeviceParams(deviceId, params) {
+  const device = await this.getDevice(deviceId);
+  const error = _get(device, 'error', false);
+
+  let status = _get(device, 'params.switch', false);
 
 
-    if (this.devicesCache) {
-      return ChangeStateZeroconf.set({
-        url: this.getZeroconfUrl(device),
-        device,
-        params,
-      });
-    }
+  if (error || (!status)) {
+    return { error, msg: errors[error] };
+  }
 
-    const { APP_ID } = this;
-	
 
-    const response = await this.makeRequest({
-      method: 'post',
-      uri: '/user/device/status',
-      body: {
-        deviceid: deviceId,
-        params,
-        appid: APP_ID,
-        nonce,
-        ts: timestamp,
-        version: 8,
-      },
+  if (this.devicesCache) {
+    return ChangeStateZeroconf.set({
+      url: this.getZeroconfUrl(device),
+      device,
+      params,
     });
-    const responseError = _get(response, 'error', false);
+  }
 
-    if (responseError) {
-      return { error: responseError, msg: errors[responseError] };
-    }
+  const { APP_ID } = this;
 
-    return { status: 'ok', params };
-  },
-};
+
+  const response = await this.makeRequest({
+    method: 'post',
+    uri: '/user/device/status',
+    body: {
+      deviceid: deviceId,
+      params,
+      appid: APP_ID,
+      nonce,
+      ts: timestamp,
+      version: 8,
+    },
+  });
+  const responseError = _get(response, 'error', false);
+
+  if (responseError) {
+    return { error: responseError, msg: errors[responseError] };
+  }
+
+  return { status: 'ok', params };
+}

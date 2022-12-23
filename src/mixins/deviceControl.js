@@ -1,8 +1,9 @@
-import { w3cwebsocket as W3CWebSocket } from 'websocket';
+import pkg from 'websocket';
+const { w3cwebsocket: W3CWebSocket } = pkg;
 import WebSocketAsPromised from 'websocket-as-promised';
 import delay from 'delay';
-import { nonce, timestamp } from '../helpers/utilities';
-import errors from '../data/errors';
+import { nonce, timestamp } from '../helpers/utilities.js';
+import errors from '../data/errors.js';
 
 import {
   VALID_POWER_STATES,
@@ -10,7 +11,7 @@ import {
   getPowerStateParams,
   getAllChannelsState,
   getSpecificChannelState,
-} from '../helpers/device-control';
+} from '../helpers/device-control.js';
 
 export default {
   async initDeviceControl(params = {}) {

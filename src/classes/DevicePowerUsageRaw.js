@@ -1,8 +1,8 @@
-import WebSocket from './WebSocket';
-import wssLoginPayload from '../payloads/wssLoginPayload';
-import wssUpdatePayload from '../payloads/wssUpdatePayload';
-import { _get } from '../helpers/utilities';
-import errors from '../data/errors';
+import WebSocket from './WebSocket.js';
+import wssLoginPayload from '../payloads/wssLoginPayload.js';
+import wssUpdatePayload from '../payloads/wssUpdatePayload.js';
+import { _get } from '../helpers/utilities.js';
+import errors from '../data/errors.js';
 
 class DevicePowerUsageRaw extends WebSocket {
   /**

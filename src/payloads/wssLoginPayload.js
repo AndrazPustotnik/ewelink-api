@@ -1,4 +1,4 @@
-import { timestamp, nonce } from '../helpers/utilities';
+import { timestamp, nonce } from '../helpers/utilities.js';
 
 const wssLoginPayload = ({ at, apiKey, appid }) => {
   const payload = {

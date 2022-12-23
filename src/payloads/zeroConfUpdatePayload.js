@@ -1,5 +1,5 @@
-import { encryptationData } from '../helpers/ewelink';
-import { timestamp } from '../helpers/utilities';
+import { encryptationData } from '../helpers/ewelink.js';
+import { timestamp } from '../helpers/utilities.js';
 
 const zeroConfUpdatePayload = (selfApikey, deviceId, deviceKey, params) => {
   const encryptedData = encryptationData(JSON.stringify(params), deviceKey);
