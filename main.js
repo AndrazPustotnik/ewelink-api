@@ -3,7 +3,7 @@ const {
   APP_SECRET: DEFAULT_APP_SECRET,
 } = require('./src/data/constants');
 
-const mixins = require('./src/mixins');
+const { mixins } = require('./src/mixins');
 const errors = require('./src/data/errors');
 
 class eWeLink {
