@@ -1,5 +1,5 @@
-const { _get, timestamp } = require('../helpers/utilities');
-const errors = require('../data/errors');
+import { _get, timestamp } from '../helpers/utilities';
+import errors from '../data/errors';
 
 /**
  * Get all devices information

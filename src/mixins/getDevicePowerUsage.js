@@ -1,7 +1,7 @@
-const { _get } = require('../helpers/utilities');
-const parsePowerUsage = require('../parsers/parsePowerUsage');
+import { _get } from '../helpers/utilities';
+import parsePowerUsage from '../parsers/parsePowerUsage';
 
-module.exports = {
+export default {
   /**
    * Get device power usage for current month
    *

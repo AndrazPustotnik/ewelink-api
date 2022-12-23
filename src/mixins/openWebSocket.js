@@ -1,9 +1,8 @@
-const W3CWebSocket = require('websocket').w3cwebsocket;
-const WebSocketAsPromised = require('websocket-as-promised');
+import { w3cwebsocket as W3CWebSocket } from 'websocket';
+import WebSocketAsPromised from 'websocket-as-promised';
+import wssLoginPayload from '../payloads/wssLoginPayload';
 
-const wssLoginPayload = require('../payloads/wssLoginPayload');
-
-module.exports = {
+export default {
   /**
    * Open a socket connection to eWeLink
    * and execute callback function with server message as argument

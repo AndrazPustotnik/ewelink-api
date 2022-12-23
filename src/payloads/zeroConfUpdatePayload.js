@@ -1,5 +1,5 @@
-const { encryptationData } = require('../helpers/ewelink');
-const { timestamp } = require('../helpers/utilities');
+import { encryptationData } from '../helpers/ewelink';
+import { timestamp } from '../helpers/utilities';
 
 const zeroConfUpdatePayload = (selfApikey, deviceId, deviceKey, params) => {
   const encryptedData = encryptationData(JSON.stringify(params), deviceKey);
@@ -14,4 +14,4 @@ const zeroConfUpdatePayload = (selfApikey, deviceId, deviceKey, params) => {
   };
 };
 
-module.exports = zeroConfUpdatePayload;
+export default zeroConfUpdatePayload;

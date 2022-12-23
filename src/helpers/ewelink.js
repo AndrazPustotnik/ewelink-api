@@ -1,9 +1,8 @@
-const crypto = require('crypto');
-const CryptoJS = require('crypto-js');
-const random = require('random');
-
-const DEVICE_TYPE_UUID = require('../data/devices-type-uuid.json');
-const DEVICE_CHANNEL_LENGTH = require('../data/devices-channel-length.json');
+import crypto from 'crypto';
+import CryptoJS from 'crypto-js';
+import random from 'random';
+import DEVICE_TYPE_UUID from '../data/devices-type-uuid.json';
+import DEVICE_CHANNEL_LENGTH from '../data/devices-channel-length.json';
 
 const makeAuthorizationSign = (APP_SECRET, body) =>
   crypto
@@ -60,7 +59,7 @@ const decryptionData = (data, key, iv) => {
   return code.toString(CryptoJS.enc.Utf8);
 };
 
-module.exports = {
+export default {
   makeAuthorizationSign,
   getDeviceChannelCount,
   encryptationData,

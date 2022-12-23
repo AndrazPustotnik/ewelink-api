@@ -53,7 +53,7 @@ const regionExpectations = {
   region: expect.any(String),
 };
 
-module.exports = {
+export default {
   credentialsExpectations,
   allDevicesExpectations,
   specificDeviceExpectations,

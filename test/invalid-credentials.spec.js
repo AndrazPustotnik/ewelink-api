@@ -1,11 +1,6 @@
-const ewelink = require('../main');
-const errors = require('../src/data/errors');
-
-const {
-  singleChannelDeviceId,
-  deviceIdWithPower,
-  fourChannelsDevice,
-} = require('./_setup/config/credentials.js');
+import ewelink from '../main';
+import errors from '../src/data/errors';
+import { singleChannelDeviceId, deviceIdWithPower, fourChannelsDevice } from './_setup/config/credentials.js';
 
 describe('invalid credentials', () => {
   test('no credentials given', async () => {

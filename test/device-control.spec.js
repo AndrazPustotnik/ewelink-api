@@ -1,14 +1,7 @@
-const ewelink = require('../main');
-const errors = require('../src/data/errors');
-const { getAllChannelsState } = require('../src/helpers/device-control');
-
-const {
-  email,
-  password,
-  sharedAccount,
-  singleChannelDeviceId,
-  fourChannelsDevice,
-} = require('./_setup/config/credentials.js');
+import ewelink from '../main';
+import errors from '../src/data/errors';
+import { getAllChannelsState } from '../src/helpers/device-control';
+import { email, password, sharedAccount, singleChannelDeviceId, fourChannelsDevice } from './_setup/config/credentials.js';
 
 describe('device control using WebSockets: get power state', () => {
   let conn;

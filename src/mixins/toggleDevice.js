@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /**
    * Toggle power state for a specific device
    *

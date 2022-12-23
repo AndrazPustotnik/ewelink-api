@@ -1,9 +1,8 @@
-const { _get } = require('../helpers/utilities');
-const errors = require('../data/errors');
+import { _get } from '../helpers/utilities';
+import errors from '../data/errors';
+import { getDeviceChannelCount } from '../helpers/ewelink';
 
-const { getDeviceChannelCount } = require('../helpers/ewelink');
-
-module.exports = {
+export default {
   /**
    * Get device channel count
    *

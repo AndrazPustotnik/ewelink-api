@@ -1,8 +1,7 @@
-const W3CWebSocket = require('websocket').w3cwebsocket;
-const WebSocketAsPromised = require('websocket-as-promised');
-const delay = require('delay');
-
-const errors = require('../data/errors');
+import { w3cwebsocket as W3CWebSocket } from 'websocket';
+import WebSocketAsPromised from 'websocket-as-promised';
+import delay from 'delay';
+import errors from '../data/errors';
 
 class WebSocket {
   /**
@@ -54,4 +53,4 @@ class WebSocket {
   }
 }
 
-module.exports = WebSocket;
+export default WebSocket;

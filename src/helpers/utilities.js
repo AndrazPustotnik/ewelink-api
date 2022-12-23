@@ -20,7 +20,7 @@ const toQueryString = object =>
     .map(key => `${key}=${object[key].toString()}`)
     .join('&')}`;
 
-module.exports = {
+export default {
   nonce,
   timestamp,
   _get,

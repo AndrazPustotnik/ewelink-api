@@ -1,4 +1,4 @@
-const { timestamp, nonce } = require('../helpers/utilities');
+import { timestamp, nonce } from '../helpers/utilities';
 
 const deviceStatus = ({ appid, deviceId, params }) => ({
   deviceid: deviceId,
@@ -9,4 +9,4 @@ const deviceStatus = ({ appid, deviceId, params }) => ({
   params,
 });
 
-module.exports = deviceStatus;
+export default deviceStatus;

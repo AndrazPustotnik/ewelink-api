@@ -1,17 +1,11 @@
-const ewelink = require('../main');
+import ewelink from '../main';
+import { email, password, singleChannelDeviceId, fourChannelsDevice } from './_setup/config/credentials.js';
 
-const {
-  email,
-  password,
-  singleChannelDeviceId,
-  fourChannelsDevice,
-} = require('./_setup/config/credentials.js');
-
-const {
+import {
   credentialsExpectations,
   allDevicesExpectations,
   specificDeviceExpectations,
-} = require('./_setup/expectations');
+} from './_setup/expectations';
 
 describe('env: node script', () => {
   let conn;

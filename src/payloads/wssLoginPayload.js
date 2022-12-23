@@ -1,4 +1,4 @@
-const { timestamp, nonce } = require('../helpers/utilities');
+import { timestamp, nonce } from '../helpers/utilities';
 
 const wssLoginPayload = ({ at, apiKey, appid }) => {
   const payload = {
@@ -16,4 +16,4 @@ const wssLoginPayload = ({ at, apiKey, appid }) => {
   return JSON.stringify(payload);
 };
 
-module.exports = wssLoginPayload;
+export default wssLoginPayload;

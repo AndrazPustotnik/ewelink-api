@@ -1,7 +1,7 @@
-const { nonce, timestamp, _get } = require('../helpers/utilities');
-const errors = require('../data/errors');
+import { nonce, timestamp, _get } from '../helpers/utilities';
+import errors from '../data/errors';
 
-module.exports = {
+export default {
   /**
    * Get information for a specific device
    *

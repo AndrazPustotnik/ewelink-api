@@ -1,16 +1,8 @@
-const ewelink = require('../main');
-const Zeroconf = require('../src/classes/Zeroconf');
-const errors = require('../src/data/errors');
-
-const {
-  email,
-  password,
-  region,
-  localIp,
-  localIpInvalid,
-} = require('./_setup/config/credentials.js');
-
-const { allDevicesExpectations } = require('./_setup/expectations');
+import ewelink from '../main';
+import Zeroconf from '../src/classes/Zeroconf';
+import errors from '../src/data/errors';
+import { email, password, region, localIp, localIpInvalid } from './_setup/config/credentials.js';
+import { allDevicesExpectations } from './_setup/expectations';
 
 describe('zeroconf: save devices to cache file', () => {
   test('can save cached devices file', async () => {

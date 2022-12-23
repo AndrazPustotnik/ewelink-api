@@ -1,6 +1,6 @@
-const { APP_ID, APP_SECRET } = require('../src/data/constants');
-const ewelink = require('../main');
-const errors = require('../src/data/errors');
+import { APP_ID, APP_SECRET } from '../src/data/constants';
+import ewelink from '../main';
+import errors from '../src/data/errors';
 
 describe('main class instantiation: valid parameters combinations', () => {
   test('email and password should initialize class', async () => {

@@ -1,7 +1,7 @@
-const { _get } = require('../helpers/utilities');
-const errors = require('../data/errors');
+import { _get } from '../helpers/utilities';
+import errors from '../data/errors';
 
-module.exports = {
+export default {
   /**
    * Get device current temperature & humidity
    * @param deviceId

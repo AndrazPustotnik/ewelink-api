@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-const { _get, _empty, toQueryString } = require('../helpers/utilities');
-const errors = require('../data/errors');
+import { _get, _empty, toQueryString } from '../helpers/utilities';
+import errors from '../data/errors';
 
 /**
  * Helper to make api requests

@@ -1,9 +1,9 @@
 import fetch from 'node-fetch';
 
-const { _get } = require('../helpers/utilities');
-const credentialsPayload = require('../payloads/credentialsPayload');
-const { makeAuthorizationSign } = require('../helpers/ewelink');
-const errors = require('../data/errors');
+import { _get } from '../helpers/utilities';
+import credentialsPayload from '../payloads/credentialsPayload';
+import { makeAuthorizationSign } from '../helpers/ewelink';
+import errors from '../data/errors';
 
 
 export async function getCredentials() {

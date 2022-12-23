@@ -1,4 +1,4 @@
-const { timestamp, nonce } = require('../helpers/utilities');
+import { timestamp, nonce } from '../helpers/utilities';
 
 const credentialsPayload = ({ appid, email, phoneNumber, password }) => ({
   appid,
@@ -10,4 +10,4 @@ const credentialsPayload = ({ appid, email, phoneNumber, password }) => ({
   nonce,
 });
 
-module.exports = credentialsPayload;
+export default credentialsPayload;

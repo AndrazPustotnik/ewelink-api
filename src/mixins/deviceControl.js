@@ -1,19 +1,18 @@
-const W3CWebSocket = require('websocket').w3cwebsocket;
-const WebSocketAsPromised = require('websocket-as-promised');
-const delay = require('delay');
+import { w3cwebsocket as W3CWebSocket } from 'websocket';
+import WebSocketAsPromised from 'websocket-as-promised';
+import delay from 'delay';
+import { nonce, timestamp } from '../helpers/utilities';
+import errors from '../data/errors';
 
-const { nonce, timestamp } = require('../helpers/utilities');
-const errors = require('../data/errors');
-
-const {
+import {
   VALID_POWER_STATES,
   getNewPowerState,
   getPowerStateParams,
   getAllChannelsState,
   getSpecificChannelState,
-} = require('../helpers/device-control');
+} from '../helpers/device-control';
 
-module.exports = {
+export default {
   async initDeviceControl(params = {}) {
     // check if socket is already initialized
     if (this.wsp) {
