@@ -10,8 +10,8 @@
 * using zeroconf (LAN mode), no internet connection required
 
 ## 4npy changed:
-* CJS to ES6 conversion
-* setDeviceParams(deviceId, {...params})
+* CJS to ES6
+* setDeviceParams(deviceId, { params })
 * This is version for electron. For pure ES6 testing, uncomment `assert { type: "json" };` from `helpers/ewelink.js`
 
 
