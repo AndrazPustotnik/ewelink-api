@@ -1,5 +1,5 @@
-# ewelink-api
-> eWeLink API (4npy version) for JavaScript
+# ewelink-api (4npy)
+> eWeLink API (4npy version) for ES6
 
 
 ## Key features
@@ -8,10 +8,11 @@
 * get power consumption on devices like Sonoff POW
 * listen for devices events
 * using zeroconf (LAN mode), no internet connection required
-*
-* 4npy added:
-* ES6 supprot for some functions...
-* setDeviceParams()
+
+* 4npy changed:
+* CJS to ES6 conversion
+* + setDeviceParams(<deviceId>, <{...params}>)
+* This is version for electron. For pure ES6 testing, uncomment `assert { type: "json" };` from `helpers/ewelink.js`
 
 
 ## Installation
