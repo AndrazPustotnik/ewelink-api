@@ -9,9 +9,9 @@
 * listen for devices events
 * using zeroconf (LAN mode), no internet connection required
 
-* 4npy changed:
+## 4npy changed:
 * CJS to ES6 conversion
-* + setDeviceParams(<deviceId>, <{...params}>)
+* setDeviceParams(deviceId, {...params})
 * This is version for electron. For pure ES6 testing, uncomment `assert { type: "json" };` from `helpers/ewelink.js`
 
 
