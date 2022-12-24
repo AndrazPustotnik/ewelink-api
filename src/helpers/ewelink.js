@@ -1,8 +1,8 @@
 import crypto from 'crypto';
 import CryptoJS from 'crypto-js';
 import random from 'random';
-import DEVICE_TYPE_UUID from '../data/devices-type-uuid.json' assert { type: "json" };
-import DEVICE_CHANNEL_LENGTH from '../data/devices-channel-length.json' assert { type: "json" };
+import DEVICE_TYPE_UUID from '../data/devices-type-uuid.json' //assert { type: "json" };  // webpack error in electron
+import DEVICE_CHANNEL_LENGTH from '../data/devices-channel-length.json' //assert { type: "json" };  // webpack error in electron
 
 export const makeAuthorizationSign = (APP_SECRET, body) =>
   crypto
