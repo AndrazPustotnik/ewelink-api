@@ -1,4 +1,4 @@
-{
+export default{
   "SOCKET": 1,
   "SWITCH_CHANGE": 1,
   "GSM_UNLIMIT_SOCKET": 1,

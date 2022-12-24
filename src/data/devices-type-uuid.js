@@ -1,4 +1,4 @@
-{
+export default {
   "1": "SOCKET",
   "2": "SOCKET_2",
   "3": "SOCKET_3",
